@@ -53,4 +53,9 @@ echo "Start minidlna"
 minidlnad -f /etc/minidlna.conf
 sleep 3
 
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+
 exit 0

@@ -1,39 +1,36 @@
 #!/bin/bash
 
-apt-get update -y
-apt-get install hostapd dnsmasq -y
+sudo apt-get update -y
+sudo apt-get install hostapd dnsmasq -y
 
-cp etc/interfaces /etc/network/interfaces 
-chmod 644 /etc/network/interfaces 
+sudo cp etc/interfaces /etc/network/interfaces 
+sudo chmod 644 /etc/network/interfaces 
 
-cp etc/dhcpcd.conf /etc/dhcpcd.conf 
-chmod 644 /etc/dhcpcd.conf 
+sudo cp etc/dhcpcd.conf /etc/dhcpcd.conf 
+sudo chmod 644 /etc/dhcpcd.conf 
 
-cp etc/hostapd.conf /etc/hostapd/hostapd.conf 
-chmod 644 /etc/hostapd/hostapd.conf 
+sudo cp etc/hostapd.conf /etc/hostapd/hostapd.conf 
+sudo chmod 644 /etc/hostapd/hostapd.conf 
 
-cp etc/hostapd /etc/default/hostapd 
-chmod 644 /etc/default/hostapd
+sudo cp etc/hostapd /etc/default/hostapd 
+sudo chmod 644 /etc/default/hostapd
 
-cp etc/dnsmasq.conf /etc/dnsmasq.conf 
-chmod 644 /etc/dnsmasq.conf 
+sudo cp etc/dnsmasq.conf /etc/dnsmasq.conf 
+sudo chmod 644 /etc/dnsmasq.conf 
 
-cp etc/rc.local /etc/rc.local 
-chmod 755 /etc/rc.local 
+sudo cp etc/rc.local /etc/rc.local 
+sudo chmod 755 /etc/rc.local 
 
-cp etc/keyboard /etc/default/keyboard
-chmod 644 /etc/default/keyboard
+sudo cp etc/keyboard /etc/default/keyboard
+sudo chmod 644 /etc/default/keyboard
 
-cp etc/vncserver-x11 /root/.vnc/config.d/vncserver-x11
-chmod 700 /root/.vnc/config.d/vncserver-x11
+sudo dpkg -i apt/*.deb
 
-dpkg -i apt/*.deb
+sudo cp etc/minidlna.conf /etc/minidlna.conf
+sudo chmod 644 /etc/minidlna.conf
 
-cp etc/minidlna.conf /etc/minidlna.conf
-chmod 644 /etc/minidlna.conf
+sudo mkdir -p /media/pi
+sudo chmod 755 /media/pi 
 
-mkdir -p /media/pi
-chmod 755 /media/pi 
-
-echo "fs.inotify.max_user_watches=524288" > /etc/sysctl.conf
+sudo echo "fs.inotify.max_user_watches=524288" > /etc/sysctl.conf
 
