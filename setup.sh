@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt-get update -y
-apt-get install git hostapd dnsmasq -y
+apt-get install hostapd dnsmasq -y
 
 cp etc/interfaces /etc/network/interfaces 
 chmod 644 /etc/network/interfaces 
