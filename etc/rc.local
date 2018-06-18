@@ -16,11 +16,6 @@
 #
 #===============================================================================
 
-sudo invoke-rc.d hostapd start 
-sudo invoke-rc.d dnsmasq start
-
-sudo dhcpcd 
-
 myMount="/media/pi"
 
 # Look for any USB drives
