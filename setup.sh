@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo apt-get update -y
-sudo apt-get install hostapd isc-dhcp-server -y
+#sudo apt-get update -y
+#sudo apt-get install minidlna hostapd isc-dhcp-server -y
 sudo dpkg -i apt/*.deb
 
 sudo mkdir -p /media/pi 
