@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#sudo apt-get update -y
-#sudo apt-get install minidlna hostapd isc-dhcp-server -y
-sudo dpkg -i apt/*.deb
+sudo apt-get update -y
+sudo apt-get install minidlna hostapd isc-dhcp-server -y
+#sudo dpkg -i apt/*.deb
 
 sudo mkdir -p /media/pi 
 sudo chmod 755 /media/pi
