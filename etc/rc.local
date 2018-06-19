@@ -15,7 +15,7 @@
 # 03-Apr-18 <jwa> - Added host name to dns service and TCP Port redirect
 #
 ##===============================================================================
-sudo dhcpcd 
+#sudo dhcpcd 
 
 myMount="/media/pi"
 
@@ -47,4 +47,7 @@ _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
+
+dhcpcd
+
 exit 0

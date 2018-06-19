@@ -26,7 +26,7 @@ sudo cp etc/hostapd /etc/default/hostapd
 sudo chmod 644 /etc/default/hostapd
 
 sudo update-rc.d hostapd defaults
-sudo systemctl disable dhcpcd.service
+#sudo systemctl disable dhcpcd.service
 
 sudo cp etc/rc.local /etc/rc.local 
 sudo chmod 755 /etc/rc.local 
