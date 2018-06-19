@@ -14,8 +14,8 @@
 # REVISION HISTORY:
 # 03-Apr-18 <jwa> - Added host name to dns service and TCP Port redirect
 #
-#===============================================================================
-sudo dhcpcd 
+##===============================================================================
+#sudo dhcpcd 
 
 myMount="/media/pi"
 
