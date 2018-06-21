@@ -43,22 +43,22 @@ echo "Found the following drives: " $theList
 
 # Mount the first drive it finds
 echo "Mounting" $theList "onto" $myMount
-mount $theList $myMount 
+mount $theList $myMount || true
 
 echo "Kill minidlna"
-killall minidlnad
+killall minidlnad || true
 sleep 3
 
 echo "Rebuild the database"
-minidlnad -R -f /etc/minidlna.conf
+minidlnad -R -f /etc/minidlna.conf || true
 sleep 3
 
 echo "Kill minidlna"
-killall minidlnad
+killall minidlnad || true
 sleep 3
 
 echo "Start minidlna"
-minidlnad -f /etc/minidlna.conf
+minidlnad -f /etc/minidlna.conf || true
 sleep 3
 
 # Print the IP address
