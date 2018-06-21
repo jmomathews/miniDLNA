@@ -33,10 +33,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 #sudo iptables -t nat -I PREROUTING --src 0/0 --dst 192.168.50.1 -p tcp --dport 80 -j REDIRECT --to-port 8080
 
 
-# Place the location of the node server app below
-#cd /usr/Fusion/FusionServer/Build
-#sudo forever start server.js
-#sudo NODE_ENV=production forever start server.js
+sudo rm /var/log/minidlna.log
 
 myMount="/media/pi"
 
