@@ -16,7 +16,8 @@
 #
 #===============================================================================
 
-#sudo invoke-rc.d mongodb start 
+exec > /tmp/rc-local.out 2>&1;set -x
+
 sudo invoke-rc.d hostapd start 
 sudo invoke-rc.d dnsmasq start
 
@@ -29,9 +30,6 @@ sudo iptables -A FORWARD -i wlan0 -o wlan1 -j ACCEPT
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
-
-#sudo iptables -t nat -I PREROUTING --src 0/0 --dst 192.168.50.1 -p tcp --dport 80 -j REDIRECT --to-port 8080
-
 
 sudo rm /var/log/minidlna.log
 
@@ -61,13 +59,12 @@ echo "Start minidlna"
 minidlnad -f /etc/minidlna.conf
 sleep 3
 
+dhcpcd
+
 # Print the IP address
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
-
-#sudo python /usr/Fusion/etc/ssid_set.py -b
-sudo dhcpcd 
 
 exit 0
