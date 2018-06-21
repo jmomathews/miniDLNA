@@ -33,6 +33,8 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
 sudo rm /var/log/minidlna.log
 
+sleep 5
+
 myMount="/media/pi"
 
 # Look for any USB drives
@@ -41,7 +43,7 @@ echo "Found the following drives: " $theList
 
 # Mount the first drive it finds
 echo "Mounting" $theList "onto" $myMount
-mount $theList $myMount
+mount $theList $myMount 
 
 echo "Kill minidlna"
 killall minidlnad
@@ -59,12 +61,12 @@ echo "Start minidlna"
 minidlnad -f /etc/minidlna.conf
 sleep 3
 
-dhcpcd
-
 # Print the IP address
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
+
+dhcpcd
 
 exit 0
